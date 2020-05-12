@@ -1,4 +1,42 @@
-# 各个文件说明
+# 各个文件用到的技术整理
+## 文件：[douban_movie.py](python爬虫/douban_movie.py)
+### 主要模块：selenium、re、time、random
+#### selenium:结合Chrome/Firefox等浏览器驱动进行浏览器操作;主要为webdriver
+##### webdriver:
+            1. 创建浏览器对象，支持Chrome、Firefox、Edge等，还有Android、BlackBerry等手机端的浏览器。另外，也支持无界面浏览器PhantomJS
+            2. 元素定位：
+                    find_element_by_id()   通过元素ID定位  
+                    find_element_by_name()   通过元素Name定位  
+                    find_element_by_class_name()   通过类名定位  
+                    find_element_by_tag_name()   通过元素TagName定位  
+                    find_element_by_link_text()   通过文本内容定位  
+                    find_element_by_partial_link_text()  
+                    find_element_by_xpath()   通过Xpath语法定位  
+                    find_element_by_css_selector()   通过选择器定位
+            3. 节点交互：比较常见的用法有：输入文字时用send_keys()方法，清空文字时用clear()方法，点击按钮时用click()方法
+            4. 动作链：
+                没有特定的执行对象，比如鼠标拖曳、键盘按键等，这些动作用另一种方式来执行，那就是动作链。
+                创建拖动对象：active = ActionChains（drive）  
+                点击拖动对象并长按保持：action.click_and_hold(target_ele)  
+                执行拖拽      action.move_by_offset(17, 0).perform()  
+                释放对象句柄action.release()
+            5. 执行JavaScript：browser.execute_script('');
+            6. 获取源码：page_source属性
+            7. 前进与后退：.forward()、.back()
+            8. 标签属性：.get_attribute("title")获取title属性
+            9.  窗口句柄切换：.window_handles获取所有句柄；.switch_to.window(all_h[-1])切换最后窗口；.switch_to.window(all_h[0])切换第一个窗口
+            10. Cookie处理：get_cookies()获取cookies；.delete_all_cookies()删除cookies
+            11. 规避检测识别：在启动Chromedriver之前，为Chrome开启实验性功能参数excludeSwitches，它的值为['enable-automation']；
+                             webdriver.ChromeOptions().add_experimental_option('excludeSwitches', ['enable-automation'])
+                             driver = webdriver.Chrome(options=option)
+##### re模块：
+- python独有的匹配字符串的模块，该模块中提供的很多功能是基于正则表达式实现的，而正则表达式是对字符串进行模糊匹配，提取自己需要的字符串部分，他对所有的语言都通用
+- re.findall（pattern，string，flags = 0 ）：以string列表形式返回string中pattern的所有非重叠匹配项。从左到右扫描该字符串，并以找到的顺序返回匹配项
+##### time模块：
+- time.sleep(secs):在给定的秒数内挂起调用线程的执行;参数：秒数，参数可以是一个浮点数，表示更精确的睡眠时间。
+##### random模块：
+- random.random()：用于生成一个0到1的数
+---
 ## 文件：[excel.py](处理文件/excel.py)
 ### 主要模块：
 #### openpyxl:处理excel的模块
