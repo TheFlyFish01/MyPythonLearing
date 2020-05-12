@@ -25,3 +25,20 @@
 - column：单元格坐在的列
 - value：单元格的值
 - coordinate：单元格的坐标
+---
+## 文件：[img.py](处理文件/img.py)
+### 主要模块：PIL的image模块
+#### 模块常用功能介绍
+- open()=>image:打开img文件
+- .size ⇒ (width, height)：获取图片尺寸（像素数）
+- .resize((width,height)):修改图像大小
+- save():保存图片
+- .format ⇒ string or None:图片来源
+- .mode ⇒ string：图像的模式
+- .convert(mode)⇒ image：将当前图像转换为其他模式，并且返回新的图像
+
+- .palette ⇒ palette or None：颜色调色板表格。如果图像的模式是“P”，则返回ImagePalette类的实例；否则，将为None。+
+- .info ⇒ dictionary：存储图像相关数据的字典
+- .new(mode,size) ⇒ image /.new(mode, size,color) ⇒ image:使用给定的变量mode和size生成新的图像。Size是给定的宽/高二元组，这是按照像素数来计算的。对于单通道图像，变量color只给定一个值；对于多通道图像，变量color给定一个元组（每个通道对应一个值）。
+- .copy() ⇒ image:拷贝这个图像。如果用户想粘贴一些数据到这张图，可以使用这个方法，但是原始图像不会受到影响
+- .crop(box) ⇒ image:从当前的图像中返回一个矩形区域的拷贝。变量box是一个四元组，定义了左、上、右和下的像素坐标
