@@ -52,8 +52,8 @@ def img_size(the_path):
         the_str = '.jpg'
     else:
         the_str = '.png'
-    #默认图片名称为1-3
-    for i in range(1,4):
+    #默认图片名称为1(可有多张进行批量修改)
+    for i in range(1,2):
         #定位图片
         the_path = path + str(i) + the_str
         #打开图片
