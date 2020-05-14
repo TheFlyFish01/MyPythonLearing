@@ -13,7 +13,7 @@ def main():
         main()
     #图片转换为BASE64模式
     img = base64.b64encode(f.read())
-    params = {'image': '' + str(img, 'utf-8') + '', 'image_type': 'BASE64', 'face_field': "faceshape,facetype,age,gender,beauty"}
+    params = {'image': '' + str(img, 'utf-8') + '', 'image_type': 'BASE64', 'face_field': "faceshape,facetype,age,gender,beauty","max_face_num":10}
     #参数转换为urlcode
     params = urlencode(params)
     #百度AI授权信息
